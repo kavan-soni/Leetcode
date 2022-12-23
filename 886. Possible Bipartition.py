@@ -5,6 +5,25 @@ class Solution:
         for [x,y] in dislikes:
             adjList[x].append(y)
             adjList[y].append(x)
+
+        '''
+        #bfs
+        color = [-1 for i in range(n+1)]
+        for i in range(1,n+1):
+            if color[i] == -1 :
+
+                q =  collections.deque()
+                q.append(i)
+                color[i] = 0
+                while q:
+                    node = q.popleft()
+                    for neighbor in adjList[node]:
+                        if color[neighbor] == color[node]: return False
+                        if color[neighbor] == -1 : 
+                            color[neighbor] = 1 - color[node]
+                            q.append(neighbor)
+        return True
+        '''
         
         #union-find
         parent = [i for i in range(n+1)]
@@ -24,21 +43,4 @@ class Solution:
         return True
 
             
-        '''
-        #bfs
-        color = [-1 for i in range(n+1)]
-        for i in range(1,n+1):
-            if color[i] == -1 :
-
-                q =  collections.deque()
-                q.append(i)
-                color[i] = 0
-                while q:
-                    node = q.popleft()
-                    for neighbor in adjList[node]:
-                        if color[neighbor] == color[node]: return False
-                        if color[neighbor] == -1 : 
-                            color[neighbor] = 1 - color[node]
-                            q.append(neighbor)
-        return True
-        '''
+        
