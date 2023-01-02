@@ -2,7 +2,9 @@ class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
 
         s = s.split()
-        if len(s) != len(pattern) : return False
+
+        if len(s) != len(pattern) or len(set(s)) != len(set(pattern)) : return False
+
         d = collections.defaultdict(str)
         
         for i in range(len(pattern)):
@@ -11,5 +13,7 @@ class Solution:
 
             else:
                 d[pattern[i]] = s[i]
-        return True if len(set(d.values())) ==  len(d.values()) else False
+        return True
         
+
+            
