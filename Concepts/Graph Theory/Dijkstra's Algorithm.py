@@ -18,11 +18,11 @@ class Graph_Theory:
         shortest_path_from_src = {}
 
         while pq:
-            dist, node = heapq.heappop(pq)
+            dist_from_src, node = heapq.heappop(pq)
             if node not in shortest_path_from_src:
-                shortest_path_from_src[node] = dist
-                for (nei_dist, neighbor) in adj[node]:
-                    heapq.heappush(pq, (dist + nei_dist, neighbor))
+                shortest_path_from_src[node] = dist_from_src
+                for (dist_to_nei, neighbor) in adj[node]:
+                    heapq.heappush(pq, (dist_from_src + dist_to_nei, neighbor))
         
         return shortest_path_from_src
         
