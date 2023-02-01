@@ -12,7 +12,7 @@
  
  ( ) Components of graphs. 
  
- ( ) Is graph bipartite. 
+ ( ) Bipartite graph. 
  
  ( ) Cycle Detection by Union Find. 
  
