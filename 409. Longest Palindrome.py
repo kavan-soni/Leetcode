@@ -2,7 +2,11 @@ class Solution:
     def longestPalindrome(self, s: str) -> int:
 
         c = collections.Counter(s)
-        answer, odd = 0, False
+        print(c)
+
+        answer = 0
+        
+        odd = False
         for char in c:
             if c[char]%2 == 0: answer+=c[char]
             else: 
