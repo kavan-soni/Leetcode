@@ -38,7 +38,7 @@ class Solution:
         while pq:
 
             cost, idx = heapq.heappop(pq)
-            if idx in visited_idx or idx < 0 or idx >= n : continue
+            if idx < 0 or idx >= n : continue
             if idx == n-1 : return cost
 
             visited_idx.add(idx)
@@ -47,7 +47,7 @@ class Solution:
             if idx+1 not in visited_idx : heapq.heappush(pq, (cost+1, idx+1))
             
             if arr[idx] in visited_value : continue
-            for x in sorted(d[arr[idx]], reverse = True):
+            for x in d[arr[idx]] :
                 if x not in visited_idx : heapq.heappush(pq, (cost+1, x))
             visited_value.add(arr[idx])
 
